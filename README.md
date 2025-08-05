@@ -25,17 +25,13 @@ It's useful for role-based access, like showing only the students added by a sal
 
 # Templates:-
 ## Base.html-
- Purpose:
- This is the base layout template in Django. It provides a reusable structure with Bootstrap, jQuery,
- and common elements like the navbar. It uses Django template tags for block content and includes.
- 1.- Declares the document type as HTML5.
- 2. and- Basic structure of the HTML document.- ensures proper encoding.- title sets the title in the browser tab.
- 3.- Makes the page responsive on mobile devices.
- 4. Bootstrap and jQuery CDNs:- Includes Bootstrap CSS (v3.4.1) and JavaScript dependencies using CDNs.- Enables responsive design and dynamic UI features.
- 5. {% include 'navbar.html' %}- Inserts the navbar.html template at this point.- Reuses a common navigation bar across pages.
- 6.- An empty Bootstrap container with top margin.- Used for layout spacing. You can move {% block content %} inside it for better structure.
- 7. {% block content %}{% endblock %}- Placeholder for child templates to insert their own content.- A core feature of Django’s template inheritance.
- 8. and- Closes the document properly.
- This template is meant to be extended by other templates using:
- {% extends 'base.html' %}
+ Purpose : This is the base layout template in Django. It provides a reusable structure with Bootstrap, jQuery,
+           and common elements like the navbar. It uses Django template tags for block content and includes.
+ 1.  Declares the document type as HTML5 and Basic structure of the HTML document. ensures proper encoding. title sets the title in the browser tab.
+ 2.  Makes the page responsive on mobile devices.
+ 3. Bootstrap and jQuery CDNs:- Includes Bootstrap CSS (v3.4.1) and JavaScript dependencies using CDNs.Enables responsive design and dynamic UI features.
+ 5. {% include 'navbar.html' %}- Inserts the navbar.html template at this point.Reuses a common navigation bar across pages.
+ 6. An empty Bootstrap container with top margin. Used for layout spacing. You can move {% block content %} inside it for better structure.
+ 7. {% block content %}{% endblock %}- Placeholder for child templates to insert their own content. A core feature of Django’s template inheritance and Closes the document properly.
+ This template is meant to be extended by other templates using:{% extends 'base.html' %}
  It helps avoid repetition and maintain a consistent look across your Django project.
