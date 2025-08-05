@@ -1,13 +1,10 @@
 # Models:-
 1. In this project, Ive customized Django built-in user model by extending AbstractUser.
 I added a role field to distinguish between different user types  like admin and sales.
-
 2. Then I created a Student model that stores student details like name, email, age, gender, place, etc.
 Each student is connected to the user who added them using a ForeignKey relation to CustomUser.
-
 3. So this way, I can track which user added which student.
 It's useful for role-based access, like showing only the students added by a sales user.
-
 4. This setup supports role-based user access and allows tracking which user added which student,
  making it scalable and secure.
 
@@ -35,3 +32,42 @@ It's useful for role-based access, like showing only the students added by a sal
  7. {% block content %}{% endblock %}- Placeholder for child templates to insert their own content. A core feature of Django’s template inheritance and Closes the document properly.
  This template is meant to be extended by other templates using:{% extends 'base.html' %}
  It helps avoid repetition and maintain a consistent look across your Django project.
+
+ # What It actually Does:- 
+ 1. Role-based authentication (admin vs sales)
+ 2. Admin can see and manage all student records
+ 3. Sales users can only view students they have added
+ 4. Full CRUD functionality for student management
+ 5. Uses Django's authentication system and decorators like @login_required
+
+ # Technical Highlights:- 
+1. CustomUser extends AbstractUser for flexibility
+2. Uses select_related for better performance in querying related models
+3. Skillset handling using checkboxes, joined into a comma-separated string
+4. Implements message framework for better UX
+5. Admin and user control over student visibility
+
+ # Why It’s Useful:-
+ This app mimics real-world use cases like CRM dashboards, internal employee panels, and
+ educational tracking systems. It shows a strong grasp of Django, database modeling, security, and
+ user experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
