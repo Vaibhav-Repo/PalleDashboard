@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+   /* Full Screen Flex Centering */
+   body {
+   margin: 0;
+   padding: 0;
+   background: #0f0f0f;
+   font-family: 'Segoe UI', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   }
+
+   /* Frosted Glass Form Container */
+   .overlay {
+   background: rgba(255, 255, 255, 0.03);
+   backdrop-filter: blur(12px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   padding: 40px 50px;
+   border-radius: 16px;
+   box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+   width: 350px;
+   animation: fadeIn 0.8s ease-in-out;
+   }
+
+   /* Form Container */
+   .con {
+   width: 100%;
+   }
+
+   /* Header Title */
+   .head-form h2 {
+   text-align: center;
+   color: #00ffe0;
+   margin-bottom: 20px;
+   text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+   letter-spacing: 1px;
+   }
+
+   /* Icon before inputs */
+   .input-item {
+   color: #00ffe0;
+   margin-right: 10px;
+   display: inline-block;
+   width: 30px;
+   text-align: center;
+   }
+
+   /* Input fields */
+   .form-input {
+   width: calc(100% - 40px);
+   padding: 10px 10px 10px 10px;
+   margin: 10px 0;
+   background: #1a1a1a;
+   border: none;
+   border-radius: 8px;
+   color: #e5e5e5;
+   outline: none;
+   font-size: 14px;
+   display: inline-block;
+   }
+
+   .form-input:focus {
+   box-shadow: 0 0 5px #00ffe0;
+   }
+
+   /* Submit & Nav Buttons */
+   .log-in,
+   .sign-in {
+   width: 100%;
+   padding: 10px;
+   border: none;
+   background: #00ffe0;
+   color: #000;
+   font-weight: bold;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: 0.3s ease;
+   margin-top: 15px;
+   }
+
+   .sign-in {
+   background: transparent;
+   color: #00ffe0;
+   border: 1px solid #00ffe0;
+   }
+
+   .log-in:hover,
+   .sign-in:hover {
+   background: #00c2a8;
+   color: #fff;
+   }
+
+   /* Fade-in Animation */
+   @keyframes fadeIn {
+   from {
+      transform: translateY(-20px);
+      opacity: 0;
+   }
+   to {
+      transform: translateY(0);
+      opacity: 1;
+   }
+   }
+</style>
+</head>
+<body>
+<div class="overlay">
+<!-- LOGN IN FORM by Omar Dsoky -->
+<form method="POST">
+   {% csrf_token %}
+  <!--   con = Container  for items in the form-->
+  <div class="con">
+  <!--     Start  header Content  -->
+  <header class="head-form">
+     <h2>Sign In</h2>
+     <!--     A welcome message or an explanation of the login form -->
+
+
+  </header>
+  <!--     End  header Content  -->
+  <br>
+  <div class="field-set">
+
+
+     <!--   user name -->
+        <span class="input-item">
+          <i class="fa fa-user-circle" style="font-size:24px"></i>
+        </span>
+       <!--   user name Input-->
+        <input class="form-input" id="txt-input" type="text" placeholder="Enter UserName" name="username"required>
+
+     <br>
+         <!--   user Email -->
+
+        <span class="input-item">
+        <i class="fa fa-envelope" style="font-size:24px"></i>
+        </span>
+       <!--   user name Input-->
+        <input class="form-input" type="email" placeholder="Enter email" name="email"required>
+     <br>
+         <!--   Password -->
+
+     <span class="input-item">
+       <i class="fa fa-key" style="font-size:24px"></i>
+      </span>
+     <!--   Password Input-->
+     <input class="form-input" type="password" placeholder="Enter Password" id="pwd"  name="password1" required>
+    <!--   Password -->
+
+
+     <span class="input-item">
+       <i class="fa fa-key" style="font-size:24px"></i>
+      </span>
+     <!--   Password Input-->
+     <input class="form-input" type="password" placeholder="Confirm Password"  name="password2" required>
+
+
+  </div>
+     <br>
+<!--        buttons -->
+<!--      button LogIn -->
+     <button class="log-in" type="submit"> Sign up </button>
+       <a href="{% url 'login' %}" class="btn" style="text-decoration: none;">
+     <button type="button" class="sign-in">Login</button>
+</a>
+{% if messages %}
+  <ul style="list-style-type: none; padding: 0;">
+    {% for message in messages %}
+      <li style="color: red; font-weight: bold;"><center>{{ message }}</center></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+ </div>
+ <!-- End Form -->
+</form>
+</div>
+</body>
+</html>
+
+
